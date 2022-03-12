@@ -17,9 +17,25 @@ def input_mark(student, course_id):
     student["marks"][course_id] = input("Enter the student's mark for this course: ")
 
 def list_students(students):
+    if len(students) <= 0:
+        print("There aren't any students yet")
+        return
     print("===> Here is the student list: ")
     for i, student in enumerate(students):
         print(f"{i+1}. {student['id']} - {student['name']} - {student['DoB']}")
+        if "marks" in student:
+            print("Marks (Course Id - Mark): ", end="")
+            for course_id, mark in student["marks"].items():
+                print(f"({course_id} - {mark})", end="\t")
+            print()
+
+def list_courses(courses):
+    if len(courses) <= 0:
+        print("There aren't any courses yet")
+        return
+    print("===> Here is the course list: ")
+    for i, course in enumerate(courses):
+        print(f"{i+1}. {course['id']} - {course['name']}")
 
 def select(option_range, input_message="Choose an option: "):
     selection = input(input_message)
@@ -37,6 +53,7 @@ def main():
     courses = []
     students = []
     num_students = 0
+    num_courses = 0
     while(True):
         print("""
 ===================================================
@@ -60,10 +77,40 @@ Here are the functions of this application
                 print("Please input the number of students first")
                 pause()
                 continue
+            students = []
             for i in range(num_students):
                 print(f"Student No. {i+1}")
                 students.append(input_infos("student", ("id", "name", "DoB")))
             list_students(students)
+        elif selection == 3:
+            num_courses = input_number("courses")
+            print(f"===> There are {num_courses} course(s) in this class")
+        elif selection == 4:
+            if num_courses <= 0:
+                print("Please input the number of courses first")
+                pause()
+                continue
+            courses = []
+            for i in range(num_courses):
+                print(f"Course No. {i+1}")
+                courses.append(input_infos("course", ("id", "name")))
+            list_courses(courses)
+        elif selection == 5:
+            list_courses(courses)
+            if len(courses) > 0:
+                selected_course = select(range(1, num_courses + 1), "Select a course: ") - 1
+                if selected_course < 0:
+                    print("Invalid input")
+                else:
+                    for i in range(num_students):
+                        print(f"Student No. {i+1} - {students[i]['name']}. ",end="")
+                        input_mark(students[i], courses[selected_course]["id"]) 
+        elif selection == 6:
+            list_courses(courses)
+        elif selection == 7:
+            list_students(students)
+        else:
+            print("Invalid input. Please try again!")
         pause() 
 
     #num_courses = input_number("courses")
