@@ -1,21 +1,26 @@
+# Ask the user to input a number
 def input_number(unit):
     return int(input(f"Enter the number of {unit} in this class: "));
 
+# Ask the user to enter a list of info for an item_type
 def input_infos(item_type, infos):
     item = {}
     for info in infos:
         item[info] = input(f"\tEnter the {item_type}'s {info}: ")
     return item
 
+# Display a list of items
 def display(lst):
     for i, item in enumerate(lst):
         print(f"{1+i}. {item}")
 
+# Input the student mark in a course
 def input_mark(student, course_id):
     if "marks" not in student:
         student["marks"] = {}
     student["marks"][course_id] = input("Enter the student's mark for this course: ")
 
+# Display a list of students
 def list_students(students):
     if len(students) <= 0:
         print("There aren't any students yet")
@@ -29,6 +34,7 @@ def list_students(students):
                 print(f"({course_id} - {mark})", end="\t")
             print()
 
+# Display a list of courses
 def list_courses(courses):
     if len(courses) <= 0:
         print("There aren't any courses yet")
@@ -37,6 +43,7 @@ def list_courses(courses):
     for i, course in enumerate(courses):
         print(f"{i+1}. {course['id']} - {course['name']}")
 
+# Ask the user to enter an integer to select an option
 def select(option_range, input_message="Choose an option: "):
     selection = input(input_message)
     if not selection.isnumeric():
@@ -46,9 +53,12 @@ def select(option_range, input_message="Choose an option: "):
         return -1
     return selection
 
+
+# Pause the program
 def pause():
     input("Press Enter to continue...")
 
+# Main function
 def main():
     courses = []
     students = []
@@ -114,5 +124,6 @@ Here are the functions of this application
         pause() 
 
     #num_courses = input_number("courses")
+
 if __name__ == "__main__":
     main()
