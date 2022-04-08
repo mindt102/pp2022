@@ -1,0 +1,3 @@
+MATH1.1, Calculus 1, 4
+MATH1.2, Linear Algebra, 4
+PHYS1.1, Fundamental Physics I, 3

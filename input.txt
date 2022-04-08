@@ -10,7 +10,7 @@ BI11-102
 Pham Van C
 02/02/2002
 
-3
+2
 3
 MATH1.1
 Calculus 1
@@ -22,24 +22,24 @@ PHYS1.1
 Fundamental Physics I
 3
 
-5
+3
 MATH1.1
 10
 9
 9
 
-5
+3
 MATH1.2
 7
 8
 9
 
-5
+3
 PHYS1.1
 8
 7
 6
 
-8
+5
 
 0
