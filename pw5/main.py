@@ -11,7 +11,7 @@ Here are the functions of this application
     0. Exit
     1. Update students
     2. Update courses
-    3. Input marks for student in a course
+    3. Update students' marks in a course
     4. List courses
     5. List students
     6. Sort the student list by GPA descending""")       
@@ -19,8 +19,8 @@ Here are the functions of this application
         if selection == 0:
             files = (system.get_students_file(), system.get_courses_file(), system.get_marks_file())
             Utils.zipfiles(system.get_data_file(), files)
-            # for file in files:
-            #     Utils.remove_file(file)
+            for file in files:
+                Utils.remove_file(file)
             break
         elif selection == 1:
             system.set_num_students()

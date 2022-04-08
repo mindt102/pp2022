@@ -13,7 +13,7 @@ class System:
             "marks": "marks.txt"
         }
         Utils.extract(self.get_data_file())
-        # Utils.remove(self.get_data_file())
+        Utils.remove_file(self.get_data_file())
 
         self.__courses = self.load_courses()
         self.__num_courses = len(self.__courses)

@@ -1,3 +1,0 @@
-BI11-100, Tran Van A, 01/01/2002
-BI11-101, Nguyen Thi B, 03/03/2002
-BI11-102, Pham Van C, 02/02/2002
